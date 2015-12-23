@@ -44,6 +44,7 @@ app.use(require("express-session")({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));
+var views = path.join(process.cwd(), "views/");
 // configure passport
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -86,40 +87,6 @@ app.listen(3000, function(){
 
 
 /*
-
-// **************
-// * MiddleWare *
-// **************
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false })); // parse forms
-app.use(cookieParser());
-app.use(require('express-session')({
-    secret: 'so many questions',
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'public'))); // angular application
-
-// configure passport
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
-
-// **********
-// * Routes *
-// **********
-
-app.use(api);
-
-app.get(["/", "*"], function(req, res){
-  res.send(
-     res.render('application.html.ejs', {user: req.user})
-  )
-});
 
 // **********
 // * Errors *
