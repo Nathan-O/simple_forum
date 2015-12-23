@@ -3,14 +3,13 @@
 * Requriements *
 ****************
 */
-
 var express = require("express");
 var session = require("express-session");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var mongoose = require("mongoose");
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcrypt-nodejs");
 var path = require("path");
 var ejs = require("ejs");
 var passport = require("passport");
@@ -30,7 +29,6 @@ var User = require('./models').User;
 * Middleware *
 **************
 */
-
 // configure middleware
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -44,23 +42,22 @@ app.use(require("express-session")({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));
-var views = path.join(process.cwd(), "views/");
+// var views = path.join(process.cwd(), "views/");
 // configure passport
-passport.use(new localStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passprt.deserializeUser(User.deserializeUser());
+// passport.use(new localStrategy(User.authenticate()));
+// passport.serializeUser(User.serializeUser());
+// passprt.deserializeUser(User.deserializeUser());
 
 /*
 **********
 * Routes *
 **********
 */
-
 // directed to use api.js for routes
 app.use(api);
 
 // index route
-app.get(["/", "*"], function(){
+app.get(["/", "*"], function(req, res){
    res.send(
       res.render("index.html.ejs", {user: req.user})
    );
@@ -68,7 +65,7 @@ app.get(["/", "*"], function(){
 
 /*
 **************
-* Middleware *
+*  *
 **************
 */
 
@@ -77,10 +74,17 @@ app.get(["/", "*"], function(){
 * Server *
 **********
 */
-
 app.listen(3000, function(){
    console.log("Make it so...");
 });
+
+
+
+
+
+
+
+
 
 
 

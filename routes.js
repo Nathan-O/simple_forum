@@ -3,8 +3,11 @@ var api = express.Router();
 /*
 NOTE: Also add all controllers that will require routes
 EXAMPLE:
-var usersCtrl = require("./controllers/users_controller")
+var usersCtrl = require("./controllers/users_controller");
 */
+var usersCtrl = require("./controllers/users_controller");
+
+
 
 /*
 **********
@@ -15,6 +18,16 @@ var usersCtrl = require("./controllers/users_controller")
 // User & Session routes
 
 // other controller routes *****
+
+
+
+
+
+
+// users & sessions
+api.post('/api/user/register', usersCtrl.register);
+api.post('/api/user/login', usersCtrl.login);
+api.get('/api/user/logout', usersCtrl.logout);
 
 module.exports = api;
 
