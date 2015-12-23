@@ -19,18 +19,27 @@ var localStrategy = require ("passport-local").Strategy;
 var app = express();
 // set ejs as template engine
 app.set("view engine", "ejs");
-
-
+// require routes js file
+var api = require("./api");
+// require Schemas/Models
 // user schema/model
 var User = require('./models').User;
 
-// require routes
-var api = require('./api');
 /*
 **********
 * Routes *
 **********
 */
+
+// directed to use api.js for routes
+app.use(api);
+
+// index route
+app.get(["/", "*"], function(){
+   res.send(
+      res.render("index.html.ejs", {user: req.user})
+   );
+});
 
 /*
 ***********
@@ -53,13 +62,6 @@ app.listen(3000, function(){
 
 
 /*
-
-
-// user schema/model
-var User = require('./models').User;
-
-// require routes
-var api = require('./api');
 
 // **************
 // * MiddleWare *
