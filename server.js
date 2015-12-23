@@ -20,10 +20,34 @@ var app = express();
 // set ejs as template engine
 app.set("view engine", "ejs");
 // require routes js file
-var api = require("./api");
+var api = require("./routes");
 // require Schemas/Models
 // user schema/model
 var User = require('./models').User;
+
+/*
+**************
+* Middleware *
+**************
+*/
+
+// configure middleware
+app.use(logger("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false})); // parse forms as json
+app.use(cookieParser());
+app.use(require("express-session")({
+   secret: "super super secret",
+   resave: false,
+   saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, "public")));
+// configure passport
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passprt.deserializeUser(User.deserializeUser());
 
 /*
 **********
@@ -42,9 +66,9 @@ app.get(["/", "*"], function(){
 });
 
 /*
-***********
-* section *
-***********
+**************
+* Middleware *
+**************
 */
 
 /*
@@ -85,7 +109,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-//**********
+// **********
 // * Routes *
 // **********
 
