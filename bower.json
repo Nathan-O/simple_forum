@@ -1,0 +1,23 @@
+{
+  "name": "simple_forum",
+  "description": "Simple forum app done in MEAN stack.",
+  "main": "server.js",
+  "authors": [
+    "Nathan Ockerman"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Nathan-O/simple_forum",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}

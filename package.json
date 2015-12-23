@@ -1,0 +1,24 @@
+{
+  "name": "simple_forum",
+  "version": "1.0.0",
+  "description": "Simple forum app done in MEAN stack.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nathan-O/simple_forum.git"
+  },
+  "author": "Nathan Ockerman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nathan-O/simple_forum/issues"
+  },
+  "homepage": "https://github.com/Nathan-O/simple_forum#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.2"
+  }
+}
