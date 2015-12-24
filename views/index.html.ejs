@@ -49,9 +49,9 @@
             <p>Hello</p>
          </div>
 
-         <a href="/login">Login</a>
-         <a href="/sign-up">Signup</a>
-         <div ng-view></div>
+         <a href="/login"><button class="btn btn-lg btn-success">Login</button></a>
+         <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a>
+         <!-- <div ng-view></div> -->
 
 
          <!--
@@ -61,7 +61,11 @@
          TODO: Finish with user sign up, then work at creating the post/comment UI of the forum.
          -->
 
-
+         <hr>
+         <br>
+         <hr>
+         <br>
+         <hr>
 
          <div ng-controller="mainCtrl">
             <p>NAV</p>
@@ -70,6 +74,20 @@
             <!-- <% include ../public/partials/nav.ejs %> -->
             <% include ../public/partials/navbar.html %>
             <p>END NAV</p>
+
+            <a href="/login"><button class="btn btn-lg btn-success">Login</button></a>
+            <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a>
+            <div ng-view></div>
+         </div>
+
+         <hr>
+         <br>
+         <hr>
+         <br>
+         <hr>
+
+         <div>
+            <p>After ng-view</p>
          </div>
 
 

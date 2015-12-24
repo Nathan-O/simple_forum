@@ -10,10 +10,10 @@
 
 'use strict';
 
-var app = angular.module('myApp.services', []);
+var app = angular.module('forumApp.services', []);
 
 app.factory('Question', function ($resource) {
-  return $resource('/api/questions/:id', { id: '@_id' })
+  return $resource('/api/questions/:id', { id: '@_id' });
 });
 
 app.factory('AuthService', function ($q, $timeout, $http, $window) {

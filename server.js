@@ -44,9 +44,9 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));
 // var views = path.join(process.cwd(), "views/");
 // configure passport
-// passport.use(new localStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passprt.deserializeUser(User.deserializeUser());
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 /*
 **********
@@ -58,9 +58,9 @@ app.use(api);
 
 // index route
 app.get(["/", "*"], function(req, res){
-   res.send(
-      res.render("index.html.ejs", {user: req.user})
-   );
+   // res.send(
+      res.render("index.html.ejs", {user: req.user});
+   // );
 });
 
 /*

@@ -56,7 +56,7 @@ module.exports.login = function (req, res, next) {
       res.status(200).json({
                               status: 'Login successful!',
                               data: user
-                          });;
+                          });
     });
   })(req, res, next);
 };
@@ -73,5 +73,5 @@ module.exports.requireUser = function (req, res, next) {
     return next();
   }
 
-  res.status(401).json({err: "Login Required"})
+  res.status(401).json({err: "Login Required"});
 };
