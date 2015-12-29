@@ -4,4 +4,6 @@
 
 #view-wrap {
    border: 5px grey solid;
+   border-radius: 10px;
+   background-color: lightblue;
 }
