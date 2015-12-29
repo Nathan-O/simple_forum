@@ -36,6 +36,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
         templateUrl: '/partials/sign-up.html',
         controller: 'registerController'
       })
+      .when('/user-show/:id', {
+        templateUrl: '/partials/user-show.html',
+        controller: 'UserShowCtrl'
+      })
+      .when('/users-all', {
+        templateUrl: '/partials/user-all.html',
+        controller: 'UserIndexCtrl'
+      })
       .otherwise({redirectTo: '/'});
 
     $locationProvider.html5Mode({

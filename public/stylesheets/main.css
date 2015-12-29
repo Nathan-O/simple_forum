@@ -2,6 +2,10 @@
    color: green;
 }
 
+#sanity2 {
+   color: blue;
+}
+
 #view-wrap {
    border: 5px grey solid;
    border-radius: 10px;

@@ -96,3 +96,24 @@ app.controller('registerController',
     };
 
 }]);
+
+
+
+
+
+
+
+/////////////////
+// CONTROLLERS //
+/////////////////
+
+app.controller('UserIndexCtrl', function($scope, UserData){
+   console.log("User Index");
+   $scope.users = UserData.query();
+});
+
+app.controller('UserShowCtrl', function($scope, UserData, $routeParams){
+   console.log("User Show");
+   $scope.user = UserData.get($routeParams.id);
+
+});

@@ -63,6 +63,15 @@ app.get(["/", "*"], function(req, res){
    // );
 });
 
+// DEV ROUTES DELETE FOR PRODUCTION
+// app.get("/all", function(req, res){
+//    // res.send(
+//       res.render("index.html.ejs", {user: req.user});
+//    // );
+// });
+
+// END OF DEV ROUTES
+
 /*
 **************
 *  *

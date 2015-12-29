@@ -49,17 +49,18 @@
             </div>
          </header>
 
-         <div>
-            <p>Hello</p>
+         <div  ng-controller="loginController">
+            <div ng-if="isLoggedIn()">
+               <p>Hello {{user.username}}</p>
+               <hr>
+               <!-- <p>Hello < user.username ></p> -->
+               <a href="/user-show"><button class="btn btn-md btn-warning">Profile</button></a>
+            </div>
             <hr>
             <h2 id="sanity">CSS Sanity</h2>
             <hr>
          </div>
 
-         <!-- <a href="/login"><button class="btn btn-lg btn-success">Login</button></a> -->
-         <!-- <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a> -->
-
-         <!-- <div ng-view></div> -->
 
 
          <!--
@@ -68,7 +69,7 @@
 
          TODO: Finish with user sign up, then work at creating the post/comment UI of the forum.
          -->
-
+         <h2 id="sanity2">CSS Sanity</h2>
          <hr>
          <br>
          <hr>
@@ -77,6 +78,10 @@
 
             <a href="/login"><button class="btn btn-lg btn-success">Login</button></a>
             <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a>
+
+
+            <a href="/users-all"><button class="btn btn-lg btn-warning">All Users</button></a>
+
 
             <hr>
             <br>
@@ -88,7 +93,6 @@
             </div>
          </div>
 
-         <hr>
          <br>
          <hr>
          <br>
