@@ -7,6 +7,22 @@ app.controller('mainCtrl', function ($scope, $window) {
 });
 
 
+
+
+
+// app.controller('UserIndexCtrl', function($scope, Users){
+//    console.log("User Index");
+//    Users.query(
+//       function(data) {
+//          $scope.users = data;
+//       }
+//    );
+//    // $scope.Users = User.$query({});
+//    // $scope.users = UserData.query();
+// });
+
+
+
 //////////////////////////////////////////////////////////////
 
 
@@ -107,11 +123,28 @@ app.controller('registerController',
 // CONTROLLERS //
 /////////////////
 
-app.controller('UserIndexCtrl', function($scope, UserData){
+app.controller('UserIndexCtrl', function($scope, Users){
    console.log("User Index");
-   $scope.Users = User.$query({});
+   Users.query(
+      function(data) {
+         $scope.users = data;
+      }
+   );
+   // $scope.Users = User.$query({});
    // $scope.users = UserData.query();
 });
+
+
+// Question.query(
+//   function(data) {
+//     $scope.questions = data
+//   },
+//   function(data) {
+//     $location.path('/login');
+//   }
+// );
+
+// $scope.users = {};
 
 app.controller('UserShowCtrl', function($scope, UserData, $routeParams){
    console.log("User Show");

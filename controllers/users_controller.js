@@ -12,6 +12,15 @@ var express = require('express'),
     passport = require('passport'),
     User = require('./../models').User;
 
+
+
+    // send back all questions
+    module.exports.index = function (req, res) {
+      User.find({}, function (err, users) {
+        res.json(users);
+      });
+   };
+
 // signup, users#create
 module.exports.register = function (req, res) {
    console.log("Inside - USER CTLR - register()");

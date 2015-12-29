@@ -9,7 +9,6 @@ var logger = require("morgan");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var mongoose = require("mongoose");
-var angoose = require("angoose");
 var bcrypt = require("bcrypt-nodejs");
 var path = require("path");
 var ejs = require("ejs");
@@ -24,6 +23,8 @@ var api = require("./routes");
 // require Schemas/Models
 // user schema/model
 var User = require('./models').User;
+// var angoose = require("angoose");
+
 
 /*
 **************
@@ -49,21 +50,27 @@ passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-angoose.init(app, {
-   'module-dirs':'./models',
-   'mongo-opts': 'localhost:27017/test',
-});
+// angoose.init(app, {
+//    'module-dirs':'./models',
+//    'mongo-opts': 'localhost:27017/test',
+// });
+
+// require("angoose").init(app, {
+//    'module-dirs':'./models',
+//    'mongo-opts': 'localhost:27017/test',
+// });
 
 /*
 **********
 * Routes *
 **********
 */
-// directed to use api.js for routes
+// directed to use routes.js for routes
 app.use(api);
 
 // index route
 app.get(["/", "*"], function(req, res){
+   // console.log(req);
    // res.send(
       res.render("index.html.ejs", {user: req.user});
    // );

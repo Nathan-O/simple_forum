@@ -7,11 +7,19 @@
 
 console.log("Sanity - App.js (Angular)");
 
-var app = angular.module("forumApp", ["ngResource", "ngRoute", "forumApp.services", "forumApp.controllers", "angoose.client"]);
+var app = angular.module("forumApp", ["ngResource", "ngRoute", "forumApp.services", "forumApp.controllers"]);
 
 // app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
 //    // code
 // }]);
+
+
+
+// .when('/users-all', {
+//  templateUrl: '/partials/user-all.html',
+//  controller: 'UserIndexCtrl'
+// })
+
 
 ////////////////////////////////////////////////////////////
 

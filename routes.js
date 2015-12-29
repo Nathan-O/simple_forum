@@ -28,6 +28,7 @@ var usersCtrl = require("./controllers/users_controller");
 api.post('/api/user/register', usersCtrl.register);
 api.post('/api/user/login', usersCtrl.login);
 api.get('/api/user/logout', usersCtrl.logout);
+api.get('/api/users', usersCtrl.index);
 
 module.exports = api;
 

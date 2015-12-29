@@ -3,6 +3,13 @@
 console.log("Sanity - ANGULAR services.js");
 
 
+
+
+// app.factory('Users', function ($resource) {
+//   return $resource('/api/users', { id: '@_id' });
+// });
+
+
 //////////////////////////////////////////////////////////////
 
 
@@ -16,6 +23,11 @@ var app = angular.module('forumApp.services', []);
 
 app.factory('Question', function ($resource) {
   return $resource('/api/questions/:id', { id: '@_id' });
+});
+
+// UNDER CONSTRUCTION
+app.factory('Users', function ($resource) {
+  return $resource('/api/users', { id: '@_id' });
 });
 
 app.factory('AuthService', function ($q, $timeout, $http, $window) {
@@ -122,56 +134,3 @@ app.factory('AuthService', function ($q, $timeout, $http, $window) {
   }
 
 });
-
-
-
-
-
-
-
-
-
-
-app.factory('UserData', function(){
-
-   var UserData = {};
-
-   UserData.query = function(){
-      User.find({}, function (err, users) {
-        return users;
-      });
-   };
-
-   // UserData.get = function(id){
-   //    var dataId = parseInt(id);
-   //    return FORUM_DATA.find(function(data){
-   //       return data.id == dataId;
-   //    });
-   // };
-
-  return UserData;
-});
-
-
-
-
-//
-// db.User.find({}, function (err, users) {
-//   return users;
-// });
-//
-//
-//
-// db.User.find({}, function (err, users){
-// 		if (err){
-// 			console.log(err);
-// 		}
-// 		var writing = {stories: []};
-// 		//console.log(users);
-// 		users.forEach(function (user){
-// 			user.submissions.forEach(function (submission){
-// 				writing.stories.push(submission);
-// 			});
-// 		});
-// 		res.render("index.ejs", {storyInfo: writing});
-// 	});
