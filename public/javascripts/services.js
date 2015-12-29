@@ -1,4 +1,4 @@
-
+console.log("Sanity - ANGULAR services.js");
 
 
 //////////////////////////////////////////////////////////////
@@ -8,7 +8,7 @@
  * SERVICES
  */
 
-'use strict';
+// 'use strict';
 
 var app = angular.module('forumApp.services', []);
 
@@ -31,6 +31,7 @@ app.factory('AuthService', function ($q, $timeout, $http, $window) {
   });
 
   function isLoggedIn() {
+     console.log("Asked if logged in");
       return !!user;
   }
 
@@ -90,6 +91,7 @@ app.factory('AuthService', function ($q, $timeout, $http, $window) {
   }
 
   function register(username, password) {
+     console.log("Inside register() - services.js");
 
     // create a new instance of deferred
     var deferred = $q.defer();

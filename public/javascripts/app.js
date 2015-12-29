@@ -5,17 +5,21 @@
 */
 // 'use strict';
 
+console.log("Sanity - App.js (Angular)");
+
 var app = angular.module("forumApp", ["ngResource", "ngRoute", "forumApp.services", "forumApp.controllers"]);
 
-app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
-   // code
-}]);
+// app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+//    // code
+// }]);
 
 ////////////////////////////////////////////////////////////
 
 
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+   console.log("Inside app.config");
+
     $routeProvider
       .when('/', {
         templateUrl: '/partials/questions-index.html',

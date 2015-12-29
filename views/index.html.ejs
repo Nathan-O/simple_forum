@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html>
-   <head lang="en">
+<html lang="en" ng-app="forumApp">
+   <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <!-- <base href="/"> -->
 
       <title>Forum</title>
+      <base href="/">
       <!-- NOTE: CDN & NPM/Bower Links-->
       <!-- Angular -->
       <script type="text/javascript" src="/vendor/angular/angular.js"></script>
@@ -33,7 +34,7 @@
 
 
    </head>
-   <body np-app="forumApp">
+   <body ng-controller="mainCtrl as main">
       <% include ../public/partials/navbar.html %>
       <!-- <div ng-include="/partials/navbar.html"></div> -->
       <div class="container">
@@ -47,10 +48,14 @@
 
          <div>
             <p>Hello</p>
+            <hr>
+            <h2 id="sanity">CSS Sanity</h2>
+            <hr>
          </div>
 
-         <a href="/login"><button class="btn btn-lg btn-success">Login</button></a>
-         <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a>
+         <!-- <a href="/login"><button class="btn btn-lg btn-success">Login</button></a> -->
+         <!-- <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a> -->
+
          <!-- <div ng-view></div> -->
 
 
@@ -67,7 +72,7 @@
          <br>
          <hr>
 
-         <div ng-controller="mainCtrl">
+         <div id="testing-wrap">
             <p>NAV</p>
             <!-- <div ng-include="'/partials/navbar.html'"></div> -->
             <!-- <div ng-include="'../public/partials/nav.ejs'"></div> -->
@@ -77,7 +82,15 @@
 
             <a href="/login"><button class="btn btn-lg btn-success">Login</button></a>
             <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a>
-            <div ng-view></div>
+
+            <hr>
+            <br>
+            <p>Pre-ng-view</p>
+            <hr>
+
+            <div class="col-md-10 col-md-offset-1" id="view-wrap">
+               <div ng-view></div>
+            </div>
          </div>
 
          <hr>

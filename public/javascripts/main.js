@@ -1,3 +1,3 @@
 $(document).ready(function(){
-   console.log("Sanity: MAIN JS");
+   console.log("Sanity - Main.js");
 });

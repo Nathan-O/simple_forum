@@ -1,3 +1,5 @@
+console.log("Sanity - ANGULAR controllers.js");
+
 var app = angular.module('forumApp.controllers', []);
 
 app.controller('mainCtrl', function ($scope, $window) {
