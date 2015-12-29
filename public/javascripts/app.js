@@ -7,7 +7,7 @@
 
 console.log("Sanity - App.js (Angular)");
 
-var app = angular.module("forumApp", ["ngResource", "ngRoute", "forumApp.services", "forumApp.controllers"]);
+var app = angular.module("forumApp", ["ngResource", "ngRoute", "forumApp.services", "forumApp.controllers", "angoose.client"]);
 
 // app.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
 //    // code

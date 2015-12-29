@@ -9,6 +9,7 @@ var logger = require("morgan");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var mongoose = require("mongoose");
+var angoose = require("angoose");
 var bcrypt = require("bcrypt-nodejs");
 var path = require("path");
 var ejs = require("ejs");
@@ -47,6 +48,11 @@ app.use(express.static(path.join(__dirname, "public")));
 passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+angoose.init(app, {
+   'module-dirs':'./models',
+   'mongo-opts': 'localhost:27017/test',
+});
 
 /*
 **********

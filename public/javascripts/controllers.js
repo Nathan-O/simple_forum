@@ -109,7 +109,8 @@ app.controller('registerController',
 
 app.controller('UserIndexCtrl', function($scope, UserData){
    console.log("User Index");
-   $scope.users = UserData.query();
+   $scope.Users = User.$query({});
+   // $scope.users = UserData.query();
 });
 
 app.controller('UserShowCtrl', function($scope, UserData, $routeParams){
