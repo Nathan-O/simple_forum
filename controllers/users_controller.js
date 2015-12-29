@@ -14,8 +14,11 @@ var express = require('express'),
 
 // signup, users#create
 module.exports.register = function (req, res) {
-  User.register(new User({ username: req.body.username }), req.body.password, function(err, account) {
+   console.log("Inside - USER CTLR - register()");
+  User.register(new User({ username: req.body.username }), req.body.password, function(err, user) {
     if (err) {
+      console.log(err);
+
       return res.status(500).json({err: err});
     }
 
@@ -37,6 +40,9 @@ module.exports.register = function (req, res) {
 
 // signin, sessions#create
 module.exports.login = function (req, res, next) {
+
+   console.log("Inside - USER CTLR - login()");
+
   passport.authenticate('local', function(err, user, info) {
     if (err) {
       return res.status(500).json({err: err});

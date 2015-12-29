@@ -36,6 +36,9 @@
    </head>
    <body ng-controller="mainCtrl as main">
       <% include ../public/partials/navbar.html %>
+
+      <p>ng-include navbar</p>
+      <div ng-include="'/partials/navbar.html'"></div>
       <!-- <div ng-include="/partials/navbar.html"></div> -->
       <div class="container">
 
@@ -71,12 +74,6 @@
          <hr>
 
          <div id="testing-wrap">
-            <p>NAV</p>
-            <!-- <div ng-include="'/partials/navbar.html'"></div> -->
-            <!-- <div ng-include="'../public/partials/nav.ejs'"></div> -->
-            <!-- <% include ../public/partials/nav.ejs %> -->
-            <% include ../public/partials/navbar.html %>
-            <p>END NAV</p>
 
             <a href="/login"><button class="btn btn-lg btn-success">Login</button></a>
             <a href="/sign-up"><button class="btn btn-lg btn-primary">Signup</button></a>
