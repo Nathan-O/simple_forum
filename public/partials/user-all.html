@@ -2,6 +2,8 @@
    <h1>All Users</h1>
 
    <ul ng-repeat="user in users">
-      <li>{{user.username}}</li>
+      <li>Username: {{user.username}}</li>
+      <li>Name: {{user.firstName}} {{user.lastName[0]}}.</li>
+
    </ul>
 </div>

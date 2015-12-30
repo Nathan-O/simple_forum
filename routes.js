@@ -1,3 +1,9 @@
+/*
+**********
+* Routes *
+**********
+*/
+
 var express = require("express");
 var api = express.Router();
 /*
@@ -7,28 +13,13 @@ var usersCtrl = require("./controllers/users_controller");
 */
 var usersCtrl = require("./controllers/users_controller");
 
-
-
-/*
-**********
-* Routes *
-**********
-*/
-
 // User & Session routes
-
-// other controller routes *****
-
-
-
-
-
-
-// users & sessions
+api.get('/api/users', usersCtrl.index);
 api.post('/api/user/register', usersCtrl.register);
 api.post('/api/user/login', usersCtrl.login);
 api.get('/api/user/logout', usersCtrl.logout);
-api.get('/api/users', usersCtrl.index);
+
+// other controller routes *****
 
 module.exports = api;
 
@@ -48,10 +39,6 @@ var express = require('express'),
 * API ROUTES *
 **************
 
-// users & sessions
-api.post('/api/user/register', usersCtrl.register)
-api.post('/api/user/login', usersCtrl.login)
-api.get('/api/user/logout', usersCtrl.logout)
 
 // questions
 api.get('/api/questions', questionsCtrl.index);

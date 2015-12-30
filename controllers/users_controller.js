@@ -1,25 +1,33 @@
+var express = require("express");
+var passport = require("passport");
+var User = require("./../models").User;
 
-
-
-
+// Index all users
+// module.exports.index = function (req,res) {
+//    User.find({}, function (err, users) {
+//       res.json(users);
+//    });
+// };
+//
+// module.exports.register = function (req, res) {
+//    //
+// };
+//
+// module.exports.login = function (req, res, next) {
+//    //
+// };
+//
+// module.exports.logout = function (req, res) {
+//    //
+// };
+//
+// module.exports.requireUser = function (req, res, next) {
+//    //
+// };
 
 
 ///////////////////////////////////////////////////////////////////////////////
 
-
-
-var express = require('express'),
-    passport = require('passport'),
-    User = require('./../models').User;
-
-
-
-    // send back all questions
-    module.exports.index = function (req, res) {
-      User.find({}, function (err, users) {
-        res.json(users);
-      });
-   };
 
 // signup, users#create
 module.exports.register = function (req, res) {

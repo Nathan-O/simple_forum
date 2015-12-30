@@ -2,24 +2,41 @@ console.log("Sanity - ANGULAR controllers.js");
 
 var app = angular.module('forumApp.controllers', []);
 
-app.controller('mainCtrl', function ($scope, $window) {
+app.controller('mainCtrl', function($scope, $window) {
   $scope.user = $window.user;
 });
 
+//////////////////////
+// User Controllers //
+//////////////////////
+
+app.controller('UserIndexCtrl', function($scope, Users) {
+   console.log("User Index");
+   Users.query(
+      function(data) {
+         $scope.users = data;
+      }
+   );
+});
+
+// AUTH CONTROLLERS //
+app.controller("registerController", ['$scope', '$location', 'AuthService', function($scope, $location, AuthService) {
+   //
+}]);
+
+app.controller("loginController", function($scope, $rootScope, $location, AuthService) {
+   //
+});
+
+app.controller("logoutController", function($scope, $location, AuthService) {
+   //
+});
+
+//////////////////////
+// ____ Controllers //
+//////////////////////
 
 
-
-
-// app.controller('UserIndexCtrl', function($scope, Users){
-//    console.log("User Index");
-//    Users.query(
-//       function(data) {
-//          $scope.users = data;
-//       }
-//    );
-//    // $scope.Users = User.$query({});
-//    // $scope.users = UserData.query();
-// });
 
 
 
@@ -123,16 +140,7 @@ app.controller('registerController',
 // CONTROLLERS //
 /////////////////
 
-app.controller('UserIndexCtrl', function($scope, Users){
-   console.log("User Index");
-   Users.query(
-      function(data) {
-         $scope.users = data;
-      }
-   );
-   // $scope.Users = User.$query({});
-   // $scope.users = UserData.query();
-});
+
 
 
 // Question.query(

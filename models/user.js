@@ -1,29 +1,16 @@
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////
-
-
-
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    passportLocalMongoose = require('passport-local-mongoose');
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var passportLocalMongoose = require("passport-local-mongoose");
 
 var UserSchema = new Schema({
-  username: String,
-  firstName: String,
-  lastName: String,
-  password: String
+   username: String,
+   firstName: String,
+   lastName: String,
+   password: String
 });
 
 UserSchema.plugin(passportLocalMongoose);
 
-var User = mongoose.model('User', UserSchema);
+var User = mongoose.model("User", UserSchema);
 
 module.exports = User;

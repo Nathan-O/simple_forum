@@ -1,13 +1,48 @@
-// var User = require('./models').User;
+/*
+NOTE: Will also need CRUD factories for posts and responses.
+*/
 
 console.log("Sanity - ANGULAR services.js");
 
+var app = angular.module("forumApp.services", []);
 
+app.factory("Users", function ($resources) {
+   return $resource("/api/users", {id: "@_id"});
+});
 
-
-// app.factory('Users', function ($resource) {
-//   return $resource('/api/users', { id: '@_id' });
+// app.factory("AuthService", function ($q, $timeout, $http, $window) {
+//    console.log("Inside - AuthService (services.js)");
+//    var user = $window.user || null;
+//
+//    return ({
+//       register: register,
+//       login: login,
+//       logout: logout,
+//       isLoggedIn: isLoggedIn,
+//       getUserStatus: getUserStatus
+//    });
+//
+//    function register(username, firstName, lastName, password) {
+//       //
+//    }
+//
+//    function login(username, password) {
+//       //
+//    }
+//
+//    function logout() {
+//       //
+//    }
+//
+//    function isLoggedIn() {
+//       //
+//    }
+//
+//    function getUserStatus() {
+//       //
+//    }
 // });
+
 
 
 //////////////////////////////////////////////////////////////
@@ -25,10 +60,10 @@ app.factory('Question', function ($resource) {
   return $resource('/api/questions/:id', { id: '@_id' });
 });
 
-// UNDER CONSTRUCTION
-app.factory('Users', function ($resource) {
-  return $resource('/api/users', { id: '@_id' });
-});
+// // UNDER CONSTRUCTION
+// app.factory('Users', function ($resource) {
+//   return $resource('/api/users', { id: '@_id' });
+// });
 
 app.factory('AuthService', function ($q, $timeout, $http, $window) {
 
