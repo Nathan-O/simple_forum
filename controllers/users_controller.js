@@ -23,13 +23,15 @@ var express = require('express'),
 
 // signup, users#create
 module.exports.register = function (req, res) {
-   console.log("Inside - USER CTLR - register()");
-  User.register(new User({ username: req.body.username }), req.body.password, function(err, user) {
+   console.log("Inside - USER DB CTLR - register()");
+  User.register(new User({ username: req.body.username, firstName: req.body.firstName, lastName: req.body.lastName }), req.body.password, function(err, user) {
     if (err) {
       console.log(err);
 
       return res.status(500).json({err: err});
     }
+
+    console.log(user);
 
     // Remove sensitive data before login
     user.hash = undefined;
@@ -50,7 +52,7 @@ module.exports.register = function (req, res) {
 // signin, sessions#create
 module.exports.login = function (req, res, next) {
 
-   console.log("Inside - USER CTLR - login()");
+   console.log("Inside - USER DB CTLR - login()");
 
   passport.authenticate('local', function(err, user, info) {
     if (err) {
