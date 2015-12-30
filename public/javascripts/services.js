@@ -6,7 +6,7 @@ console.log("Sanity - ANGULAR services.js");
 
 var app = angular.module("forumApp.services", []);
 
-app.factory("Users", function ($resources) {
+app.factory("Users", function ($resource) {
    return $resource("/api/users", {id: "@_id"});
 });
 
@@ -54,11 +54,10 @@ app.factory("Users", function ($resources) {
 
 // 'use strict';
 
-var app = angular.module('forumApp.services', []);
 
-app.factory('Question', function ($resource) {
-  return $resource('/api/questions/:id', { id: '@_id' });
-});
+// app.factory('Question', function ($resource) {
+//   return $resource('/api/questions/:id', { id: '@_id' });
+// });
 
 // // UNDER CONSTRUCTION
 // app.factory('Users', function ($resource) {

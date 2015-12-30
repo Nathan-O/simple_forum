@@ -19,18 +19,18 @@ app.controller('UserIndexCtrl', function($scope, Users) {
    );
 });
 
-// AUTH CONTROLLERS //
-app.controller("registerController", ['$scope', '$location', 'AuthService', function($scope, $location, AuthService) {
-   //
-}]);
-
-app.controller("loginController", function($scope, $rootScope, $location, AuthService) {
-   //
-});
-
-app.controller("logoutController", function($scope, $location, AuthService) {
-   //
-});
+// // AUTH CONTROLLERS //
+// app.controller("registerController", ['$scope', '$location', 'AuthService', function($scope, $location, AuthService) {
+//    //
+// }]);
+//
+// app.controller("loginController", function($scope, $rootScope, $location, AuthService) {
+//    //
+// });
+//
+// app.controller("logoutController", function($scope, $location, AuthService) {
+//    //
+// });
 
 //////////////////////
 // ____ Controllers //

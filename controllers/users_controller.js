@@ -3,12 +3,12 @@ var passport = require("passport");
 var User = require("./../models").User;
 
 // Index all users
-// module.exports.index = function (req,res) {
-//    User.find({}, function (err, users) {
-//       res.json(users);
-//    });
-// };
-//
+module.exports.index = function (req, res) {
+   User.find({}, function (err, users) {
+      res.json(users);
+   });
+};
+
 // module.exports.register = function (req, res) {
 //    //
 // };
