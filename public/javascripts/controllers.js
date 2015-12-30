@@ -19,6 +19,14 @@ app.controller('UserIndexCtrl', function($scope, Users) {
    );
 });
 
+app.controller('UserShowCtrl', function($scope, Users, $routeParams) {
+   console.log("User Show");
+   // $scope.user = UserData.get($routeParams.id);
+   Users.query($routeParams.id, function(data) {
+      $scope.user = data;
+   });
+});
+
 // // AUTH CONTROLLERS //
 // app.controller("registerController", ['$scope', '$location', 'AuthService', function($scope, $location, AuthService) {
 //    //
@@ -65,7 +73,8 @@ app.controller('loginController', function ($scope, $rootScope, $location, AuthS
       AuthService.login($scope.loginForm.username, $scope.loginForm.password)
         // handle success
         .then(function () {
-          $location.path('/');
+         //  $location.path('/');
+         $location.path('/user-show/:id');
           $scope.disabled = false;
           $scope.loginForm = {};
           $rootScope.$broadcast('loggedIn'); // TELL THE OTHER CONTROLLERS WE'RE LOGGED IN
@@ -153,9 +162,3 @@ app.controller('registerController',
 // );
 
 // $scope.users = {};
-
-app.controller('UserShowCtrl', function($scope, UserData, $routeParams){
-   console.log("User Show");
-   $scope.user = UserData.get($routeParams.id);
-
-});

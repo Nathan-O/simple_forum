@@ -6,9 +6,23 @@ console.log("Sanity - ANGULAR services.js");
 
 var app = angular.module("forumApp.services", []);
 
-app.factory("Users", function ($resource) {
+
+app.factory("Users", function ($window, AuthService, $resource) {
+
+   console.log(AuthService.isLoggedIn());
+
+   var user = $window.user || null;
+   if (user !== null) {
+      console.log("Logged In");
+      console.log(user);
+      var userID = user.id;
+   } else if (user === null){
+      console.log("---NULL---");
+   }
+   // return $resource("/api/users", {id: "@_id"});
    return $resource("/api/users", {id: "@_id"});
 });
+
 
 // app.factory("AuthService", function ($q, $timeout, $http, $window) {
 //    console.log("Inside - AuthService (services.js)");
@@ -81,7 +95,7 @@ app.factory('AuthService', function ($q, $timeout, $http, $window) {
   });
 
   function isLoggedIn() {
-     console.log("Asked if logged in");
+   //   console.log("Asked if logged in");
       return !!user;
   }
 
