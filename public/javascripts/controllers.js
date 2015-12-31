@@ -17,6 +17,12 @@ app.controller('UserIndexCtrl', function($scope, Users) {
          $scope.users = data;
       }
    );
+
+   $scope.deleteUser = function(user) {
+      Users.delete({id: user._id});
+      var index = $scope.users.indexOf(user);
+      $scope.users.splice(index, 1);
+   };
 });
 
 app.controller('UserShowCtrl', function($scope, Users, $routeParams) {
@@ -41,12 +47,60 @@ app.controller('UserShowCtrl', function($scope, Users, $routeParams) {
 // });
 
 //////////////////////
-// ____ Controllers //
+// Post Controllers //
 //////////////////////
 
+app.controller("postsIndexCtrl", function($scope, $location, Post, AuthService){
+   Post.query(
+      function(data) {
+         $scope.posts = data;
+      },
+      function(data) {
+         $location.path("/login");
+      }
+   );
+
+   $scope.post = {};
+   $scope.createPost = function() {
+      Post.save($scope.post,
+         function(data) {
+            $scope.posts.push(data);
+         },
+         function(data) {
+            alert("Opps, something went wrong with saving your post.");
+         }
+      );
+      $scope.post = {};
+   };
+
+   $scope.deletePost = function(post) {
+      Post.delete({id: post._id});
+      var index = $scope.posts.indexOf(post);
+      $scope.posts.splice(index, 1);
+   };
+});
 
 
 
+//
+// $scope.question = {};
+//  $scope.createQuestion = function() {
+//    Question.save($scope.question,
+//      function(data){
+//       $scope.questions.push(data);
+//      },
+//      function(data) {
+//       alert("there was a problem saving your question");
+//      }
+//    );
+//    $scope.question = {};
+//  }
+//
+//  $scope.deleteQuestion = function(question) {
+//    Question.delete({id: question._id});
+//    var index = $scope.questions.indexOf(question)
+//    $scope.questions.splice(index, 1);
+//  }
 
 //////////////////////////////////////////////////////////////
 

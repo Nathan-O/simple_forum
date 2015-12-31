@@ -86,6 +86,20 @@ module.exports.login = function (req, res, next) {
   })(req, res, next);
 };
 
+// delete the user
+module.exports.destroy = function (req, res) {
+  // set the value of the id
+  var targetId = req.params.id;
+
+  // find user in db by id and remove
+  User.findOneAndRemove({_id: targetId}, function (err, deletedUser) {
+     if (err) {
+        console.log(err);
+     }
+    res.json(deletedUser);
+  });
+};
+
 // signout, sessions#destroy
 module.exports.logout = function (req, res) {
   req.logout();

@@ -6,6 +6,10 @@ console.log("Sanity - ANGULAR services.js");
 
 var app = angular.module("forumApp.services", []);
 
+app.factory("Post", function($resource) {
+   return $resource('/api/posts/:id', { id: '@_id' });
+});
+
 
 app.factory("Users", function ($window, AuthService, $resource) {
 

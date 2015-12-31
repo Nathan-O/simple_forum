@@ -4,6 +4,12 @@
    <ul ng-repeat="member in users" class="list-group">
       <li class="list-group-item">Username: {{member.username}}</li>
       <li class="list-group-item">Name: {{member.firstName}} {{member.lastName[0]}}.</li>
+      <li class="list-group-item">
+         <a href="#" class="pull-right" ng-click="deleteUser(member)">
+            <i class="icon ion-close-circled"></i>
+         </a>
+      </li>
+
    </ul>
 
    <h2>After All Users</h2>

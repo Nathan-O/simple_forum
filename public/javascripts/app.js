@@ -14,8 +14,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 
    $routeProvider
       .when('/', {
-         templateUrl: '/partials/questions-index.html',
-         controller: 'questionsIndexController'
+         templateUrl: '/partials/posts-index.html',
+         controller: 'postsIndexCtrl'
       })
       .when('/login', {
          templateUrl: '/partials/login.html',
